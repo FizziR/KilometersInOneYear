@@ -1,5 +1,7 @@
 package model
 
-case class Activity(name: String, activityID: Int) {
+import controller.Activities
+
+case class Activity(activity: Activities.Value, user: User) {
 
 }
