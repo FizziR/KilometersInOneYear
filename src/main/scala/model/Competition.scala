@@ -31,6 +31,11 @@ case class Competition(userGroup: String*){
     sortedSumList
   }
 
+  def stringToPrintScoreBoard(scoreBoard: Seq[(String, Double)])={
+    var emptyString = ("")
+    scoreBoard.foreach(score => emptyString += {s"${scoreBoard.indexOf(score)+1}. ${score._1}   did ${score._2}  km\n"})
+    emptyString
+  }
 
 
 
