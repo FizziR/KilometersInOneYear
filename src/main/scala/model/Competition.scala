@@ -17,7 +17,7 @@ case class Competition(userGroup: String*){
 
   def getSortedList(listOfActivities: Seq[Activity]):Seq[Seq[Activity]]={
 
-    val sortedListOfActivities= userGroup.map(user => { listOfActivities.filter(activity => (activity.userName ==user))})
+    val sortedListOfActivities= userGroup.map(user => { listOfActivities.filter(activity => (activity.userName.get ==user))})
     sortedListOfActivities
   }
   def getSumForUser(sortedList: Seq[Seq[Activity]], userIndex: Int): Double ={
@@ -27,7 +27,7 @@ case class Competition(userGroup: String*){
   }
   def addsAndSortsUserNameToList(listOfSums: Seq[Double]): Seq[(String, Double)] ={
     val listWithSumAndName = listOfSums.map(sum => (userGroup(listOfSums.indexOf(sum)), sum))
-    val sortedSumList = listWithSumAndName.sortBy(_._2)
+    val sortedSumList = listWithSumAndName.sortBy(_._2)(Ordering[Double].reverse)
     sortedSumList
   }
 
