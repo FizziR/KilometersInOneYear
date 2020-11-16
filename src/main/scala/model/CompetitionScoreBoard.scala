@@ -20,7 +20,7 @@ object CompetitionScoreBoard {
       activity Of Paul Is walking For 2 In 0.5,
       activity Of Sebi Is hiking For 6 In 1.5,
     )
-    
+
     print(WhoRanMoreKilometers.stringToPrintScoreBoard(scoreBoard))
 
   }
