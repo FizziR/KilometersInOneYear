@@ -1,5 +1,8 @@
 package model
 
-case class Activity(activityName : String, duration: Double, distance: Double){
+object ActivityName {
+  val running = "running"
+  val hiking = "hiking"
+  val walking = "walking"
 
 }
