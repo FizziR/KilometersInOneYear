@@ -13,7 +13,7 @@ class CompetitionSpec extends AnyWordSpec with Matchers{
   val distance = 10
   val name = "Feli"
   val activityName = "running"
-  val activity = new Activity(Some(name), Some(activityName), Some(distance), Some(duration))
+  /*val activity = new Activity(Some(name), Some(activityName), Some(distance), Some(duration))
   val activity1 = new Activity(Some("Sebi"), Some("walking"), Some(5), Some(0.5))
   val activity2 = new Activity(Some("Paul"), Some("hiking"), Some(9), Some(2))
   val activity3 = new Activity(Some("Sebi"), Some("walking"), Some(2), Some(0.3))
@@ -36,5 +36,5 @@ class CompetitionSpec extends AnyWordSpec with Matchers{
     "returning string for score board" in{
       competition.stringToPrintScoreBoard(scoreBoard) should be("1. Paul did 11.0 km\n" + "2. Feli did 10.0 km\n" + "3. Sebi did 7.0 km\n")
     }
-  }
+  }*/
 }

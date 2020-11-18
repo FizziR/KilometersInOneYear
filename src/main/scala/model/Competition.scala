@@ -2,7 +2,7 @@ package model
 
 case class Competition(userGroup: String*){
 
-
+/*
   def getScoreBoard( listOfActivities: Activity*) ={
     val emptyList = getEmptySeq(userGroup)
     val sortedList = getSortedList(listOfActivities)
@@ -36,7 +36,7 @@ case class Competition(userGroup: String*){
     scoreBoard.foreach(score => emptyString += {s"${scoreBoard.indexOf(score)+1}. ${score._1} did ${score._2} km\n"})
     emptyString
   }
-
+*/
 
 
 }

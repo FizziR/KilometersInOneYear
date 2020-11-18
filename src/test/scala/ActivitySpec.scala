@@ -8,7 +8,7 @@ class ActivitySpec extends AnyWordSpec with Matchers{
   val distance = 10
   val name = "Feli"
   val activityName = "running"
-  val activity = new Activity(Some(name), Some(activityName), Some(distance), Some(duration))
+  /*val activity = new Activity(Some(name), Some(activityName), Some(distance), Some(duration))
 
   "An Activity" when{
     "copy all of" in{
@@ -24,5 +24,5 @@ class ActivitySpec extends AnyWordSpec with Matchers{
       activity.In(duration) should be(activity)
     }
 
-  }
+  }*/
 }
