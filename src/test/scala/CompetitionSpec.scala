@@ -8,21 +8,23 @@ class CompetitionSpec extends AnyWordSpec with Matchers{
   val Feli= "Feli"
   val Paul = "Paul"
   val Sebi = "Sebi"
-  //val competition = new Competition(userGroup = Feli,Paul ,Sebi)
+  val userGroup = Seq(Feli, Paul, Sebi)
+  val competition = new Competition(Seq( Feli, Paul ,Sebi))
   val duration = 1.3
   val distance = 10
   val name = "Feli"
   val activityName = "running"
-  /*val activity = new Activity(Some(name), Some(activityName), Some(distance), Some(duration))
-  val activity1 = new Activity(Some("Sebi"), Some("walking"), Some(5), Some(0.5))
-  val activity2 = new Activity(Some("Paul"), Some("hiking"), Some(9), Some(2))
-  val activity3 = new Activity(Some("Sebi"), Some("walking"), Some(2), Some(0.3))
-  val activity4 = new Activity(Some("Paul"), Some("hiking"), Some(2), Some(0.3))
-  val listOfActivities: Seq[Activity] = Seq(activity, activity1, activity2, activity3, activity4)
-  val scoreBoard = competition.getScoreBoard(activity, activity1, activity2,activity3, activity4)
+  val activity = new Activity(name, activityName, distance, duration)
+  val activity1 = new Activity("Sebi", "walking", 5, 0.5)
+  val activity2 = new Activity("Paul", "hiking", 9, 2)
+  val activity3 = new Activity("Sebi","walking", 2, 0.3)
+  val activity4 = new Activity("Paul", "hiking", 2, 0.3)
+  val list_of_activities = List(activity, activity1, activity2, activity3, activity4)
+
+
   "A Competition" when{
     "returning sorted list" in{
-      competition.getSortedList(listOfActivities) should be(Seq(Seq(activity), Seq(activity2, activity4), Seq(activity1, activity3)) )
+      competition.getSortedList(list_of_activities) should be(Seq(Seq(activity), Seq(activity2, activity4), Seq(activity1, activity3)) )
     }
 
     "return a list with sums of users" in{
@@ -34,7 +36,9 @@ class CompetitionSpec extends AnyWordSpec with Matchers{
     }
 
     "returning string for score board" in{
+      val sumOfUser = userGroup.map(user => competition.getSumForUser(competition.getSortedList(list_of_activities), userGroup.indexOf(user)))
+      val scoreBoard = competition.addsAndSortsUserNameToList(sumOfUser)
       competition.stringToPrintScoreBoard(scoreBoard) should be("1. Paul did 11.0 km\n" + "2. Feli did 10.0 km\n" + "3. Sebi did 7.0 km\n")
     }
-  }*/
+  }
 }
