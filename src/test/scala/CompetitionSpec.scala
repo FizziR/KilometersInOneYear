@@ -8,7 +8,7 @@ class CompetitionSpec extends AnyWordSpec with Matchers{
   val Feli= "Feli"
   val Paul = "Paul"
   val Sebi = "Sebi"
-  val competition = new Competition(userGroup = Feli,Paul ,Sebi)
+  //val competition = new Competition(userGroup = Feli,Paul ,Sebi)
   val duration = 1.3
   val distance = 10
   val name = "Feli"

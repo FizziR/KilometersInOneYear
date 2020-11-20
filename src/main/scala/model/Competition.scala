@@ -1,14 +1,15 @@
 package model
 
-case class Competition(userGroup: String*){
+case class Competition(userGroup: Seq[String]){
 
-/*
-  def getScoreBoard( listOfActivities: Activity*) ={
+
+  def getScoreBoard( listOfActivities: List[Activity]) ={
     val emptyList = getEmptySeq(userGroup)
     val sortedList = getSortedList(listOfActivities)
     val sumOfUsers = userGroup.map(user => getSumForUser(sortedList, userGroup.indexOf(user)))
     val scoreBoard = addsAndSortsUserNameToList(sumOfUsers)
-    scoreBoard
+    val stringScoreBoard = stringToPrintScoreBoard(scoreBoard)
+    stringScoreBoard
   }
 
   def getEmptySeq(users: Seq[String]):Vector[Double]={
@@ -17,11 +18,11 @@ case class Competition(userGroup: String*){
 
   def getSortedList(listOfActivities: Seq[Activity]):Seq[Seq[Activity]]={
 
-    val sortedListOfActivities= userGroup.map(user => { listOfActivities.filter(activity => (activity.userName.get ==user))})
+    val sortedListOfActivities= userGroup.map(user => { listOfActivities.filter(activity => (activity.userName ==user))})
     sortedListOfActivities
   }
   def getSumForUser(sortedList: Seq[Seq[Activity]], userIndex: Int): Double ={
-    val ListOfKilometer = sortedList(userIndex).map(n => n.distance.get)
+    val ListOfKilometer = sortedList(userIndex).map(n => n.distance)
     val sumOfKilometer = ListOfKilometer.sum
     sumOfKilometer
   }
@@ -36,7 +37,7 @@ case class Competition(userGroup: String*){
     scoreBoard.foreach(score => emptyString += {s"${scoreBoard.indexOf(score)+1}. ${score._1} did ${score._2} km\n"})
     emptyString
   }
-*/
+
 
 
 }

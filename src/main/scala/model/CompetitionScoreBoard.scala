@@ -1,27 +1,17 @@
 package model
-import model.Activity
-import model.Competition
-import model.ActivityName.{running, hiking, walking}
+import scala.io.Source
 
 object CompetitionScoreBoard {
   def main(args: Array[String]): Unit = {
 
+    val input_txt = Source.fromFile("./src/competition.txt").getLines.toList
+    val activityParseModel = new ActivityParserModel()
+    val competition = activityParseModel.generateCompetitionFromString(input_txt(4))
+    val input_activities = input_txt.drop(6)
+    val activity_list = activityParseModel.generateActivitiesFromStrings(input_activities)
+    val scoreBoard = activityParseModel.getScoreBoard(competition, activity_list)
 
-    val Feli = "Feli"
-    val Paul = "Paul"
-    val Sebi = "Sebi"
-
-
-    val WhoRanMoreKilometers = Competition(userGroup = Feli, Paul, Sebi)
-
-   /* val activity = Activity(None, None, None, None)
-    val scoreBoard = WhoRanMoreKilometers getScoreBoard(
-      activity Of Feli Is running For 10 In 1.3,
-      activity Of Paul Is walking For 2 In 0.5,
-      activity Of Sebi Is hiking For 6 In 1.5,
-    )
-
-    print(WhoRanMoreKilometers.stringToPrintScoreBoard(scoreBoard))*/
+    print(scoreBoard)
 
   }
 

@@ -3,27 +3,32 @@ import scala.util.parsing.combinator.RegexParsers
 
 class ActivityParser extends RegexParsers{
 
-  def parseDSL(input:String): ParseResult[Activity] =
-    parse(activityParser, input)
-
+  def userName = "[a-zA-zäÄöÖüÜß]+".r
+  def activityName = "(joggte)|(wanderte)|(spazierte)".r
+  def distance = "[0-9]+(.[0-9]+)?".r
+  def distanceUnit = "km".r
+  def In = "in".r
+  def duration = "[0-9]+(.[0-9]+)?".r
+  def durationUnit = "(min)|(h)".r
+  def text = "[a-zA-zäÄöÖüÜß\\s]+:".r
+  def userGroup = "([a-zA-zäÄöÖüÜß]+,\\s*)*[a-zA-zäÄöÖüÜß]+".r
 
   def activityParser: Parser[Activity] =
-    "Activity:" ~ userName ~
-      "did" ~ activityName ~
-      "for" ~ distance ~ "km in" ~ duration ~ "h" ^^ {
-    case _ ~ user ~ _ ~ activity ~ _ ~ distance ~ _ ~ duration ~ _ =>
-      Activity(user, activity, distance, duration)
+   userName ~ activityName ~ distance ~ distanceUnit ~ In ~ duration ~ durationUnit ^^ {
+    case userName ~ activityName ~ distance ~ _ ~ _ ~ duration ~ _ =>
+      {
+        val activity = Activity(userName, activityName, distance.toDouble, duration.toDouble)
+        activity
+      }
   }
 
-  def userName: Parser[String] =
-    "[^\\v]+".r ^^ (_.toString)
+  def userGroupParser : Parser[Competition] =
+    text ~ userGroup ^^ {
+      case _ ~ userGroup => {
+        val userList = userGroup.split(",\\s").toSeq
+        Competition(userList)
+      }
+    }
 
-  def activityName: Parser[String] =
-    """[^\v]+""".r ^^ (_.toString)
 
-  def distance: Parser[Double] =
-    """\d+(\.\d+)?""".r ^^ (_.toDouble)
-
-  def duration: Parser[Double] =
-    """\d+(\.\d+)?""".r ^^ (_.toDouble)
 }
