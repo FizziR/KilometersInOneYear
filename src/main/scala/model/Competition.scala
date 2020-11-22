@@ -1,5 +1,7 @@
 package model
 
+
+
 case class Competition(userGroup: String*){
 
 

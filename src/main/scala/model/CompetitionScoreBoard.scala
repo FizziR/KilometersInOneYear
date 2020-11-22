@@ -2,6 +2,7 @@ package model
 import model.Activity
 import model.Competition
 import model.activityNames.{running, hiking, walking}
+import implicit_conversion.implicitConversion._
 
 object CompetitionScoreBoard {
   def main(args: Array[String]): Unit = {
@@ -16,9 +17,9 @@ object CompetitionScoreBoard {
 
     val activity = Activity(None, None, None, None)
     val scoreBoard = WhoRanMoreKilometers getScoreBoard(
-      activity Of Feli Is running For 10 In 1.3,
-      activity Of Paul Is walking For 2 In 0.5,
-      activity Of Sebi Is hiking For 6 In 1.5,
+      activity Of Feli Is running For 10.KM In 1.3.H,
+      activity Of Paul Is walking For 2.KM In 30.MIN,
+      activity Of Sebi Is hiking For 6.M In 1.5.H,
     )
 
     print(WhoRanMoreKilometers.stringToPrintScoreBoard(scoreBoard))
