@@ -5,7 +5,7 @@ import scala.concurrent.duration.Duration
 
 object implicitConversion {
 
-  class DistanceUnit(distance: Double) {
+  case class DistanceUnit(distance: Double) {
 
     def KM = distance
 
@@ -15,7 +15,7 @@ object implicitConversion {
 
   implicit def fromDoubleToDistance(distance: Double) = new DistanceUnit(distance)
 
-  class TimeUnit(duration: Double){
+  case class TimeUnit(duration: Double){
     def H = duration
     def MIN = (duration/60).toDouble
   }
