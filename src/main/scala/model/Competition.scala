@@ -1,7 +1,8 @@
-package model
 
 case class Competition(userGroup: Seq[String]){
 
+  val database = collection.mutable.Map[String, Double]()
+  userGroup.foreach(user => database += (user -> 0.0))
 
   def getScoreBoard( listOfActivities: List[Activity]) ={
     val emptyList = getEmptySeq(userGroup)
@@ -38,6 +39,14 @@ case class Competition(userGroup: Seq[String]){
     emptyString
   }
 
+  def addActivityToUser(activity: Option[Activity])={
+
+    database(activity.get.userName) = database(activity.get.userName) + activity.get.distance
+
+    //if(!database.contains(activity.get.userName)) database += (activity.get.userName -> activity.get.distance)
+    print(database+"\n")
+  }
 
 
 }
+

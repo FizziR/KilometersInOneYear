@@ -1,4 +1,4 @@
-package model
+
 import scala.util.parsing.combinator.RegexParsers
 
 class ActivityParser extends RegexParsers{
@@ -22,7 +22,7 @@ class ActivityParser extends RegexParsers{
       }
   }
 
-  def userGroupParser : Parser[Competition] =
+  def CompetitionParser : Parser[Competition] =
     text ~ userGroup ^^ {
       case _ ~ userGroup => {
         val userList = userGroup.split(",\\s").toSeq
@@ -30,5 +30,12 @@ class ActivityParser extends RegexParsers{
       }
     }
 
+  def userGroupParser : Parser[Seq[String]] =
+    text ~ userGroup ^^ {
+      case _ ~ userGroup => {
+        val userList = userGroup.split(",\\s").toSeq
+        userList
+      }
+    }
 
 }
