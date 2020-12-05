@@ -22,14 +22,6 @@ class ActivityParser extends RegexParsers{
       }
   }
 
-  def CompetitionParser : Parser[Competition] =
-    text ~ userGroup ^^ {
-      case _ ~ userGroup => {
-        val userList = userGroup.split(",\\s").toSeq
-        Competition(userList)
-      }
-    }
-
   def userGroupParser : Parser[Seq[String]] =
     text ~ userGroup ^^ {
       case _ ~ userGroup => {

@@ -17,14 +17,6 @@ object CompetitionScoreBoard {
 
     val activityStream = userSource.via(userFlow).to(sink)
     activityStream.run()
-
-    val competition = activityParseModel.generateCompetitionFromString(input_txt(4))
-    val input_activities = input_txt.drop(6)
-    val activity_list = activityParseModel.generateActivitiesFromStrings(input_activities)
-    val scoreBoard = activityParseModel.getScoreBoard(competition, activity_list)
-
-    //print(scoreBoard)
-
   }
 
 

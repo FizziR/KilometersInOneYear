@@ -4,32 +4,16 @@ case class Competition(userGroup: Seq[String]){
   val database = collection.mutable.Map[String, Double]()
   userGroup.foreach(user => database += (user -> 0.0))
 
-  def getScoreBoard( listOfActivities: List[Activity]) ={
-    val emptyList = getEmptySeq(userGroup)
-    val sortedList = getSortedList(listOfActivities)
-    val sumOfUsers = userGroup.map(user => getSumForUser(sortedList, userGroup.indexOf(user)))
-    val scoreBoard = addsAndSortsUserNameToList(sumOfUsers)
+  def getScoreBoard(listOfDatabase : List[(String, Double)]) ={
+
+    val scoreBoard = sortsList(listOfDatabase)
     val stringScoreBoard = stringToPrintScoreBoard(scoreBoard)
     stringScoreBoard
   }
 
-  def getEmptySeq(users: Seq[String]):Vector[Double]={
-    Vector.fill(users.length)(0)
-  }
 
-  def getSortedList(listOfActivities: Seq[Activity]):Seq[Seq[Activity]]={
-
-    val sortedListOfActivities= userGroup.map(user => { listOfActivities.filter(activity => (activity.userName ==user))})
-    sortedListOfActivities
-  }
-  def getSumForUser(sortedList: Seq[Seq[Activity]], userIndex: Int): Double ={
-    val ListOfKilometer = sortedList(userIndex).map(n => n.distance)
-    val sumOfKilometer = ListOfKilometer.sum
-    sumOfKilometer
-  }
-  def addsAndSortsUserNameToList(listOfSums: Seq[Double]): Seq[(String, Double)] ={
-    val listWithSumAndName = listOfSums.map(sum => (userGroup(listOfSums.indexOf(sum)), sum))
-    val sortedSumList = listWithSumAndName.sortBy(_._2)(Ordering[Double].reverse)
+  def sortsList(listOfSums: List[(String, Double)]): Seq[(String, Double)] ={
+    val sortedSumList = listOfSums.sortBy(_._2)(Ordering[Double].reverse)
     sortedSumList
   }
 
@@ -40,11 +24,10 @@ case class Competition(userGroup: Seq[String]){
   }
 
   def addActivityToUser(activity: Option[Activity])={
-
     database(activity.get.userName) = database(activity.get.userName) + activity.get.distance
-
-    //if(!database.contains(activity.get.userName)) database += (activity.get.userName -> activity.get.distance)
     print(database+"\n")
+    val listOfDatabase = database.toList
+    print(getScoreBoard(listOfDatabase))
   }
 
 
