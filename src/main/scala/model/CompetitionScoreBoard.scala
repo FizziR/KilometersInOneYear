@@ -1,6 +1,5 @@
 package model
-import model.Activity
-import model.Competition
+
 import model.activityNames.{running, hiking, walking}
 
 object CompetitionScoreBoard {
