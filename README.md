@@ -6,7 +6,7 @@ The internal and external DSLs are used to convert the setences to variables.
 
 ## This projects consists of different branches:
 - main: uses internal DSL
--##### feature/impliciteConversion: uses internal DSL with the addition of an implicite conversion
+- ##### feature/impliciteConversion: uses internal DSL with the addition of an implicite conversion
 - feature/externalDSL: uses external DSL 
 - feature/AkkaStreams: uses external DSL with the addition of an implicite conversion
 
