@@ -17,3 +17,5 @@ libraryDependencies ++= Seq(
 )
 val AkkaVersion = "2.6.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-stream-testkit" % AkkaVersion % Test
+
+coverageExcludedPackages := ".*CompetitionScoreBoard.*"
