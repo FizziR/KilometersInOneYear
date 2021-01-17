@@ -18,4 +18,5 @@ In the sink, the scoreboard gets updated and printed each time a new activity go
 
 The testing also covers the akka streams by using the scaladsl testsink of the testkit of akka streams.
 
+## Travis CI
 [![Build Status](https://travis-ci.com/FizziR/KilometersInOneYear.svg?branch=feature/AkkaStreams)](https://travis-ci.com/FizziR/KilometersInOneYear) [![Coverage Status](https://coveralls.io/repos/github/FizziR/KilometersInOneYear/badge.svg?branch=feature/AkkaStreams)](https://coveralls.io/github/FizziR/KilometersInOneYear?branch=main)
