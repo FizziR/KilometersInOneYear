@@ -25,9 +25,9 @@ case class Competition(userGroup: Seq[String]){
 
   def addActivityToUser(activity: Option[Activity])={
     database(activity.get.userName) = database(activity.get.userName) + activity.get.distance
-    print(database+"\n")
+
     val listOfDatabase = database.toList
-    print(getScoreBoard(listOfDatabase))
+    print("Update:\n" + getScoreBoard(listOfDatabase) + "\n")
   }
 
 

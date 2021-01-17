@@ -14,9 +14,9 @@ class StreamSpec extends AnyWordSpec with Matchers{
 
   "Testing the akka stream with the testkit" when{
     "the source is under testing" in{
-      val sourceUnderTest = Source(1 to 4).filter(_ % 2 == 0).map(_ * 2)
+      val sourceUnderTest = Source(1 to 6).filter(_ % 3 == 0).map(_ * 2)
 
-      sourceUnderTest.runWith(TestSink.probe[Int]).request(2).expectNext(4, 8).expectComplete()
+      sourceUnderTest.runWith(TestSink.probe[Int]).request(2).expectNext(6, 12).expectComplete()
     }
   }
 
