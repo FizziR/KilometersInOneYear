@@ -13,7 +13,7 @@ The internal and external DSLs are used to convert the setences to variables.
 ## main-branche:
 In this branche the internal DSL is implemented to convert the sentences wirtten in the main class to variables.
 The participants have to be created in the userGroup of the Competition "WhoRanMoreKilometers" in the main class.
-After that, new activities can be added to the Competiton by using the prase: 
+After that, new activities can be added to the Competiton by using the phrase: 
 >  activity of $username Is $activity For $distance$ In $duration$
 
 The distance is added in kilometers and the duration in hours, both as double values.
