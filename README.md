@@ -16,5 +16,6 @@ The activities of .txt-file beginning in line 6 are the source of the stream.
 The flow takes each activity (in this case each line of the .txt-file) by mapping through the acrtivities. Each activity is then parsed indiviually by the ActicitiyParser. In the sink, there is a Map including the usernames as keys and the sums of the achieved kilometers of the users as values.
 In the sink, the scoreboard gets updated and printed each time a new activity got parsed. 
 
+The testing also covers the akka streams by using the scaladsl testsink.
 
 [![Build Status](https://travis-ci.com/FizziR/KilometersInOneYear.svg?branch=feature/AkkaStreams)](https://travis-ci.com/FizziR/KilometersInOneYear) [![Coverage Status](https://coveralls.io/repos/github/FizziR/KilometersInOneYear/badge.svg?branch=feature/AkkaStreams)](https://coveralls.io/github/FizziR/KilometersInOneYear?branch=main)
