@@ -19,4 +19,5 @@ The actual inout looks like this:
 
 The distances of the different users are all converted to kilometers and the durations to hours for the calcuation of the score board.
 
+## Travis CI
 [![Build Status](https://travis-ci.com/FizziR/KilometersInOneYear.svg?branch=feature/internalDSLinUser)](https://travis-ci.com/FizziR/KilometersInOneYear) [![Coverage Status](https://coveralls.io/repos/github/FizziR/KilometersInOneYear/badge.svg?branch=main)](https://coveralls.io/github/FizziR/KilometersInOneYear?branch=feature/internalDSLinUser)
