@@ -17,4 +17,4 @@ The flow takes each activity (in this case each line of the .txt-file) by mappin
 In the sink, the scoreboard gets updated and printed each time a new activity got parsed. 
 
 
-[![Build Status](https://travis-ci.com/FizziR/KilometersInOneYear.svg?branch=feature/externalDSL)](https://travis-ci.com/FizziR/KilometersInOneYear) [![Coverage Status](https://coveralls.io/repos/github/FizziR/KilometersInOneYear/badge.svg?branch=feature/externalDSL)](https://coveralls.io/github/FizziR/KilometersInOneYear?branch=main)
+[![Build Status](https://travis-ci.com/FizziR/KilometersInOneYear.svg?branch=feature/AkkaStreams)](https://travis-ci.com/FizziR/KilometersInOneYear) [![Coverage Status](https://coveralls.io/repos/github/FizziR/KilometersInOneYear/badge.svg?branch=feature/AkkaStreams)](https://coveralls.io/github/FizziR/KilometersInOneYear?branch=main)
