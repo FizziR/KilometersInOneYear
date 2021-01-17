@@ -5,12 +5,12 @@ With the documentation of the differenten activities the programm generates the 
 The internal and external DSLs are used to convert the setences to variables. 
 
 ## This projects consists of different branches:
-- master: uses internal DSL
+- main: uses internal DSL
 - feature/impliciteConversion: uses internal DSL with the addition of an implicite conversion
 - feature/externalDSL: uses external DSL 
 - feature/AkkaStreams: uses external DSL with the addition of an implicite conversion
 
-## master-branche:
+## main-branche:
 In this branche the internal DSL is implemented to convert the sentences wirtten in the main class to variables.
 The participants have to be created in the userGroup of the Competition "WhoRanMoreKilometers" in the main class.
 After that, new activities can be added to the Competiton by using the prase: activity of <username> Is <activity> For <distance> In <duration>
